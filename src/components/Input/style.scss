@@ -1,0 +1,177 @@
+@import "../../media";
+
+$distance: 0px;
+%selected {
+  color: white;
+  background: color(theme);
+}
+
+.input-div {
+  height: 80px;
+  .input {
+    position: relative;
+    padding-top: 10px;
+    &::before {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      content: "";
+      height: 1px;
+      background: #444;
+    }
+
+    .place-holder {
+      position: absolute;
+      left: 0px;
+      bottom: $distance;
+      z-index: -1;
+      font-size: 1em;
+      transition: all 0.3s ease-in-out;
+    }
+
+    > span {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      background: color(theme);
+      width: 100%;
+      height: 2px;
+      transition: all 0.4s ease;
+      transform-origin: center;
+      transform: scale(0);
+    }
+
+    .input-type {
+      border: none;
+      background: transparent;
+      width: 100%;
+      font-size: 1em;
+      padding: $distance 0;
+
+      &:focus {
+        + .place-holder {
+          bottom: calc(70%);
+          font-size: 0.8em;
+          + span {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+    .select {
+      position: relative;
+      + .place-holder {
+        bottom: calc(70%);
+        font-size: 0.8em;
+      }
+
+      .currentValue {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+        font-size: 1em;
+
+        img {
+          margin-left: 10px;
+          width: 10px;
+          height: 15px;
+        }
+      }
+
+      .dropDownButtons {
+        z-index: 4;
+        top: -5px;
+        position: absolute;
+        box-shadow: 0 0 3px rgba(black, 0.3);
+        background: white;
+        min-width: 250px;
+        color: #444;
+        border-radius: 4px;
+        padding: 10px 8px;
+        max-height: 400px;
+        transform: scale(1, 0);
+        // transition: transform 0.2s ease-in-out;
+        transition: 0.3s cubic-bezier(0.25, 0.1, 0.3, 1.5) 0.3s;
+        transform-origin: top;
+        overflow: hidden;
+
+        @include for-size(tablet-landscape-up) {
+          overflow: scroll;
+          ::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+        &:hover {
+          overflow-y: scroll;
+        }
+
+        .options {
+          display: block;
+          width: 100%;
+          padding: 10px 10px;
+          margin-bottom: 2px;
+          font-size: 1em;
+          border-radius: 4px;
+          text-align: left;
+
+          &:hover {
+            @extend %selected;
+            background: lighten(color(theme), 10%);
+          }
+        }
+
+        .selected {
+          @extend %selected;
+        }
+      }
+
+      .open-drop {
+        transform: scale(1, 1);
+      }
+    }
+
+    .open-drop {
+      + .place-holder {
+        + span {
+          transform: scale(1);
+        }
+      }
+    }
+
+    .invalid {
+      + .place-holder {
+        + span {
+          transform: scale(1);
+          background: orangered;
+        }
+      }
+    }
+
+    .typing,
+    .valid {
+      + .place-holder {
+        bottom: calc(70%);
+        font-size: 0.8em;
+        + span {
+          transform: scale(1);
+        }
+      }
+    }
+
+    .invalid {
+      ~ span {
+        background: orangered;
+      }
+    }
+  }
+
+  .error {
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: orangered;
+  }
+}

@@ -1,12 +1,35 @@
 import React from 'react';
-import './style.scss'
+import ReactDOM from 'react-dom';
+import { ParallaxProvider } from 'react-scroll-parallax';
+import { ToastProvider } from 'react-toast-notifications';
+import { Provider } from 'react-redux';
+import App from './App';
+import store from './store';
+import * as serviceWorker from './serviceWorker';
+import './index.scss';
 
-const index = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+const render = (Component) =>
+  ReactDOM.render(
+    <Provider store={store}>
+      <ToastProvider>
+        <ParallaxProvider>
+          <App />
+        </ParallaxProvider>
+      </ToastProvider>
+    </Provider>,
+    document.getElementById('root')
+  );
+
+render(App);
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default;
+    render(NextApp);
+  });
 }
 
-export default index
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.register();
