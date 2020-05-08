@@ -1,57 +1,58 @@
 {
-  "name": "react-custom-dropdown-menu",
-  "version": "1.0.7",
-  "description": "Coustomizable drop down menu for react",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=production",
-    "build": "rimraf dist && webpack"
+  "name": "react-package-broiler-plate",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Brioler plate for my react apps",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "axois": "0.0.1-security",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^5.2.1",
+    "react-intersection-observer": "^8.26.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-scroll-parallax": "^2.3.2",
+    "react-skeleton-loader": "^1.0.4",
+    "react-transition-group": "^4.3.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "serve": "^11.3.0",
+    "tiny-slider-react": "^0.4.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cvjude/react-coustom-dropdown.git"
+  "scripts": {
+    "start": "serve -s build",
+    "dev": "react-scripts start",
+    "build": "rimraf ./build && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.8"
   },
   "keywords": [
     "broiler plate for my react packages"
   ],
-  "files": [
-    "dist/*"
-  ],
   "author": "Jude Chinoso",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cvjude/react-coustom-dropdown/issues"
-  },
-  "homepage": "https://github.com/cvjude/react-coustom-dropdown#readme",
-  "dependencies": {
-    "node-sass": "^4.13.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "webpack": "^4.41.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "@babel/plugin-proposal-class-properties": "^7.7.0",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "@babel/register": "^7.7.0",
-    "@babel/runtime": "^7.7.2",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "eslint": "^6.6.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack-cli": "^3.3.10"
-  },
-  "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  }
+  "license": "ISC"
 }
