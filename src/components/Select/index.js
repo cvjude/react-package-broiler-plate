@@ -7,14 +7,11 @@ const Select = ({
   name,
   placeHolder = 'place Holder',
   value,
-  error = '',
   inputs,
   currentText = 'None',
-  required,
   validateSelf,
   handleSelect,
 }) => {
-  const [error, setError] = useState(false);
   const [openDrop, setOpenDrop] = useState(false);
   const [presentValue, setPresentValue] = useState('');
   const [value, setValue] = useState('');
@@ -28,7 +25,7 @@ const Select = ({
       const isValid = validate(value, name);
 
       if (!isValid) {
-        this.selectRef.current.classList.add('invalid');
+        selectRef.current.classList.add('invalid');
       }
     }
 
@@ -48,16 +45,14 @@ const Select = ({
   };
 
   const close = () => {
-    this.setState((prevState) => ({
-      openDrop: false,
-    }));
+    setOpenDrop(false);
   };
 
   const options = inputs.map((input, index) => {
     return (
       <button
         className={`options ${
-          input.option === this.state.presentValue ? 'selected' : ''
+          input.option === presentValue ? 'selected' : ''
         }`}
         type='button'
         key={index}
