@@ -7,7 +7,7 @@ const Input = ({
   name,
   placeHolder = 'place Holder',
   value,
-  error = '',
+  errorMsg = '',
   required,
   validateSelf,
 }) => {
@@ -63,7 +63,7 @@ const Input = ({
         <span></span>
       </div>
       <p className='error' style={{ display: error ? 'block' : 'none' }}>
-        {error}
+        {errorMsg}
       </p>
     </div>
   );
