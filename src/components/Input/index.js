@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { validateInput, validate } from '../../helpers';
+import Eye from '../../assets/icons/eye';
 import './style.scss';
 
 const Input = ({
@@ -10,11 +11,13 @@ const Input = ({
   errorMsg = '',
   required,
   validateSelf,
+  handleChange,
+  reviel,
+  revielPassword,
 }) => {
   const [error, setError] = useState(false);
-  const [value, setValue] = useState('');
 
-  inputRef = React.createRef();
+  const inputRef = React.createRef();
 
   useEffect(() => {
     if (validateSelf) {
@@ -22,29 +25,22 @@ const Input = ({
 
       if (!isValid) {
         inputRef.current.classList.add('typing', 'invalid');
+        setError(true);
       }
     }
 
-    inputRef.current.classList.add('typing');
-    if (value === '') {
-      inputRef.current.classList.remove('typing');
-
-      setError(false);
-    }
-
     return () => {};
-  }, []);
+  }, [inputRef, name, validateSelf, value]);
 
-  const validate = (event) => {
-    handleChange(event, this.state.error);
+  const validateOne = (event) => {
+    handleChange(event, error);
     if (!validateInput(event)) {
       inputRef.current.classList.add('invalid');
       setError(true);
     } else {
       inputRef.current.classList.remove('invalid');
-      setError(true);
+      setError(false);
     }
-    setValue(event.target.value);
   };
 
   return (
@@ -53,14 +49,18 @@ const Input = ({
         <input
           className='input-type'
           ref={inputRef}
-          type={type}
+          type={reviel ? 'text' : type}
           required={required}
           name={name}
-          onChange={validate}
+          onChange={validateOne}
           value={value}
+          placeholder={placeHolder}
         />
-        <label className='place-holder'>{placeHolder}</label>
-        <span></span>
+        {value && type === 'password' ? (
+          <span onClick={revielPassword} className='reviel-password'>
+            <Eye />
+          </span>
+        ) : null}
       </div>
       <p className='error' style={{ display: error ? 'block' : 'none' }}>
         {errorMsg}

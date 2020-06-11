@@ -1,4 +1,4 @@
-@import "../../media";
+@import '../../media';
 
 $distance: 0px;
 %selected {
@@ -15,7 +15,7 @@ $distance: 0px;
       position: absolute;
       bottom: 0;
       width: 100%;
-      content: "";
+      content: '';
       height: 1px;
       background: #444;
     }
@@ -56,6 +56,22 @@ $distance: 0px;
             transform: scale(1);
           }
         }
+      }
+    }
+
+    .reviel-password {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: 35px;
+      top: 50%;
+      transform: translate(-50%);
+      cursor: pointer;
+
+      svg {
+        fill: rgba(black, 0.3);
+        width: 100%;
+        height: 100%;
       }
     }
 

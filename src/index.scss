@@ -1,6 +1,5 @@
 @import './media';
-@import url('https://fonts.googleapis.com/css?family=Montserrat:900,400,700,500,600|Open+Sans:300,400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Khula:900,400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap');
 
 *,
 *::before,
@@ -10,7 +9,7 @@
   box-sizing: border-box;
   outline: none;
   -webkit-tap-highlight-color: transparent;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body,
@@ -25,15 +24,6 @@ html {
 a {
   color: color(text);
   text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Montserrat', sans-serif;
 }
 
 p {
@@ -77,13 +67,34 @@ p {
   flex-direction: column-reverse;
 }
 
+.j-start {
+  justify-content: flex-start;
+}
+.j-end {
+  justify-content: flex-end;
+}
+.j-space {
+  justify-content: space-between;
+}
+
+.al-start {
+  align-items: flex-start;
+}
+.al-end {
+  align-items: flex-end;
+}
+.al-bet {
+  align-content: space-between;
+}
+
 button {
   cursor: pointer;
   border: none;
   background: none;
 }
 
-.img {
+.img,
+svg {
   width: 100%;
   height: 100%;
 }
@@ -103,6 +114,11 @@ button {
 .theme-color {
   color: color(theme);
   fill: color(theme);
+}
+
+.secondary-color {
+  color: color(secondary);
+  fill: color(secondary);
 }
 
 .clipped-text {
@@ -148,11 +164,19 @@ button {
   place-content: center;
 }
 
-.absolute-center {
+%centered {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.absolute-center {
+  @extend %centered;
+}
+
+.before {
+  @extend %centered;
 }
 
 ul,
@@ -163,4 +187,46 @@ li {
 .read-more {
   color: color(theme);
   font-size: 0.9em;
+}
+
+.underline {
+  border-bottom: 1px solid black;
+}
+
+.card {
+  @include for-size(phone-only) {
+    flex-direction: column;
+  }
+
+  .img-sec,
+  .text-sec {
+    width: 50%;
+
+    @include for-size(phone-only) {
+      width: 90%;
+    }
+  }
+
+  &.var {
+    .img-sec,
+    .text-sec {
+      width: unset;
+
+      @include for-size(phone-only) {
+        width: 90%;
+      }
+    }
+  }
+}
+
+.m-150 {
+  margin-top: 150px;
+}
+
+.inblock {
+  display: inline-block;
+}
+
+.m-150 {
+  margin-top: 150px;
 }

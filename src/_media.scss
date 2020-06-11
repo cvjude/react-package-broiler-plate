@@ -39,8 +39,10 @@
 }
 
 $colors: (
-  theme: #000000,
+  theme: #fdc709,
+  secondary: #53befa,
   text: #000000,
+  text_fade: #6f6f6f,
 );
 
 @function color($color) {

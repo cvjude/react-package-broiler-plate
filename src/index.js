@@ -8,26 +8,16 @@ import store from './store';
 import * as serviceWorker from './serviceWorker';
 import './index.scss';
 
-const render = (Component) =>
-  ReactDOM.render(
-    <Provider store={store}>
-      <ToastProvider>
-        <ParallaxProvider>
-          <App />
-        </ParallaxProvider>
-      </ToastProvider>
-    </Provider>,
-    document.getElementById('root')
-  );
-
-render(App);
-
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
-    render(NextApp);
-  });
-}
+ReactDOM.render(
+  <Provider store={store}>
+    <ToastProvider>
+      <ParallaxProvider>
+        <App />
+      </ParallaxProvider>
+    </ToastProvider>
+  </Provider>,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

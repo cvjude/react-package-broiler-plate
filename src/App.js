@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 import Loader from './components/Loader';
 import './App.css';
 
@@ -20,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default hot(module)(App);
