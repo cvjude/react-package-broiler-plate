@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import loadvid from '../../assets/loader.mp4';
+// import loadvid from '../../assets/logo-theme.png';
 
 const Loader = ({ tempLoad }) => {
-  const loading = useSelector(state => state.load.loading);
+  const loading = useSelector((state) => state.load.loading);
 
   return (
     <>
@@ -18,11 +18,11 @@ const Loader = ({ tempLoad }) => {
             top: 0,
             left: 0,
             zIndex: 200,
-            justifyContent: 'center'
+            justifyContent: 'center',
           }}
         >
           <video className='img contain' autoPlay loop>
-            <source src={loadvid} type='video/mp4' />
+            {/* <source src={loadvid} type='video/mp4' /> */}
           </video>
         </main>
       ) : null}

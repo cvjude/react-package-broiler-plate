@@ -1,5 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Banner from './Banner';
+import Footer from '../../components/Footer';
 import './style.scss';
 
 const HomePage = () => {
